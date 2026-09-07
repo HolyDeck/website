@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HolyDeck — a full setup for Sunday</title>
+<meta name="description" content="HolyDeck turns the verses for the service into clean slides — prepared during the week, presented without worry. Bible verses and song slides, from sermon prep to screen.">
+<meta property="og:title" content="HolyDeck">
+<meta property="og:description" content="A full setup for Sunday — bible verses and song slides, from sermon prep to screen.">
+<meta property="og:url" content="https://holydeck.faith">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..600;1,7..72,300..600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --night: #171b2e;
+  --night-deep: #10131f;
+  --screen-hi: #1e2440;
+  --beam: #f5d98a;
+  --ivory: #f2efe4;
+  --paper: #f7f5ee;
+  --ink: #232741;
+  --ink-soft: #565b76;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Literata", Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+a { color: inherit; text-underline-offset: 3px; }
+a:hover { color: var(--beam); }
+:focus-visible { outline: 2px solid var(--beam); outline-offset: 3px; border-radius: 2px; }
+
+/* ---- the screen ---- */
+
+.screen {
+  background: linear-gradient(180deg, var(--night-deep) 0%, var(--night) 45%, var(--night) 100%);
+  color: var(--ivory);
+  padding: 0 1.5rem 5.5rem;
+}
+
+.top {
+  max-width: 66rem;
+  margin: 0 auto;
+  padding: 1.6rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.wordmark {
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+.wordmark:hover { color: var(--ivory); }
+
+.top nav a {
+  font-size: 0.95rem;
+  color: var(--ivory);
+  opacity: 0.85;
+}
+.top nav a:hover { color: var(--beam); opacity: 1; }
+
+.hero {
+  max-width: 46rem;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: clamp(1.5rem, 5vh, 4rem);
+}
+
+.slide {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  padding: clamp(1.5rem, 6vw, 4rem);
+  background: radial-gradient(ellipse at 50% 30%, var(--screen-hi) 0%, var(--night-deep) 100%);
+  border: 1px solid rgba(245, 217, 138, 0.16);
+  border-radius: 10px;
+  box-shadow:
+    0 0 90px rgba(245, 217, 138, 0.10),
+    0 0 30px rgba(245, 217, 138, 0.06);
+}
+
+.slide-inner {
+  animation: lift 1.4s ease-out 0.25s both;
+}
+
+@keyframes lift {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-inner { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+.slide blockquote {
+  font-weight: 300;
+  font-size: clamp(1.15rem, 3.2vw, 1.9rem);
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.lord { font-variant-caps: small-caps; letter-spacing: 0.05em; }
+
+.slide figcaption {
+  margin-top: 1.1rem;
+  color: var(--beam);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+}
+
+.hero h1 {
+  margin-top: 3.2rem;
+  font-size: clamp(2rem, 5.5vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.lede {
+  margin: 1.1rem auto 0;
+  max-width: 34rem;
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  opacity: 0.88;
+  text-wrap: balance;
+}
+
+.status {
+  margin-top: 2.4rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--beam);
+  opacity: 0.9;
+}
+
+/* ---- the workbench ---- */
+
+.workbench {
+  padding: 5rem 1.5rem 4.5rem;
+}
+
+.workbench-inner {
+  max-width: 66rem;
+  margin: 0 auto;
+}
+
+.workbench h2 {
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.gifts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.gifts h3 {
+  font-weight: 600;
+  font-size: 1.08rem;
+  margin-bottom: 0.6rem;
+}
+
+.gifts p {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+.gifts .planned {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 0.9em;
+}
+
+.cli {
+  margin-top: 4rem;
+  background: var(--night);
+  color: var(--ivory);
+  border-radius: 10px;
+  padding: 1.4rem 1.6rem;
+  overflow-x: auto;
+}
+
+.cli code {
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.cli .prompt { color: var(--beam); }
+
+.cli-note {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---- footer ---- */
+
+footer {
+  border-top: 1px solid rgba(35, 39, 65, 0.14);
+  padding: 2rem 1.5rem 2.6rem;
+}
+
+.footer-inner {
+  max-width: 66rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.footer-inner a { color: var(--ink); }
+.footer-inner a:hover { color: var(--beam); }
+
+@media (max-width: 720px) {
+  .gifts { grid-template-columns: 1fr; gap: 2rem; }
+  .hero h1 { margin-top: 2.4rem; }
+}
+</style>
+</head>
+<body>
+
+<section class="screen">
+  <div class="top">
+    <a class="wordmark" href="/">HolyDeck</a>
+    <nav><a href="https://github.com/HolyDeck/holydeck">GitHub</a></nav>
+  </div>
+
+  <div class="hero">
+    <figure class="slide">
+      <div class="slide-inner">
+        <blockquote>This is the day which the <span class="lord">Lord</span> hath made; we will rejoice and be glad in it.</blockquote>
+        <figcaption>Psalm 118:24 (KJV)</figcaption>
+      </div>
+    </figure>
+
+    <h1>A full setup for Sunday.</h1>
+    <p class="lede">Bible verses and song slides — prepared during the week, presented without worry.</p>
+    <p class="status">HolyDeck is in early development. The first release is being built in the open.</p>
+  </div>
+</section>
+
+<section class="workbench">
+  <div class="workbench-inner">
+    <h2>What it will do</h2>
+
+    <div class="gifts">
+      <div>
+        <h3>Prepare in minutes</h3>
+        <p>Write the verse list for the service once. HolyDeck renders clean, ready-to-paste slide text for every translation your church reads.</p>
+      </div>
+      <div>
+        <h3>Sunday never breaks</h3>
+        <p>A local bible datastore keeps every verse on your own machine, so the service doesn't depend on the internet being up.</p>
+      </div>
+      <div>
+        <h3>Present live <span class="planned">(planned)</span></h3>
+        <p>Verses and song slides on the second screen, driven from one place — the whole service in one flow.</p>
+      </div>
+    </div>
+
+    <div class="cli">
+      <code><span class="prompt">$</span> holydeck get "PSA 118:24" --translations KJV</code>
+    </div>
+    <p class="cli-note">It starts at the command line; a full interface for the worship team follows.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>Free for every church. MIT licensed.</span>
+    <span><a href="https://github.com/HolyDeck/holydeck">Source on GitHub</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
